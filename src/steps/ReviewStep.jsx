@@ -7,7 +7,12 @@ export default function ReviewStep() {
   return (
     <div className="step">
       <StepHead title="Review and submit" subtitle="Check the details below." />
-      <ReviewCard site={site} device={device} port={state.port} comment={state.comment} />
+      <ReviewCard
+        site={site}
+        device={device}
+        port={state.port}
+        comment={state.comment}
+      />
     </div>
   );
 }

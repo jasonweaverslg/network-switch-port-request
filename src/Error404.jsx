@@ -9,7 +9,15 @@ export default function Error404() {
         <StepHead title="404" subtitle="Page not found." />
         <div className="nav">
           <span />
-          <Link className="btn btn--primary" to="/" style={{ display: "inline-flex", alignItems: "center", textDecoration: "none" }}>
+          <Link
+            className="btn btn--primary"
+            to="/"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              textDecoration: "none",
+            }}
+          >
             Back to start
           </Link>
         </div>

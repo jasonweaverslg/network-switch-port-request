@@ -1,4 +1,11 @@
-export default function OptionList({ items, selectedId, emptyText, onSelect, renderContent, idPrefix }) {
+export default function OptionList({
+  items,
+  selectedId,
+  emptyText,
+  onSelect,
+  renderContent,
+  idPrefix,
+}) {
   return (
     <div className="options">
       {items.map((i) => {

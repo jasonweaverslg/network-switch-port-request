@@ -42,7 +42,14 @@ function reducer(s, a) {
     case "deviceQuery":
       return { ...s, deviceQuery: a.v };
     case "pickSite":
-      return { ...s, siteId: a.id, deviceId: null, port: null, comment: "", deviceQuery: "" };
+      return {
+        ...s,
+        siteId: a.id,
+        deviceId: null,
+        port: null,
+        comment: "",
+        deviceQuery: "",
+      };
     case "pickDevice":
       return { ...s, deviceId: a.id, port: null, comment: "" };
     case "pickPort":
@@ -50,7 +57,9 @@ function reducer(s, a) {
     case "comment":
       return { ...s, comment: a.v };
     case "submit":
-      return s.siteId && s.deviceId && s.port !== null ? { ...s, submitted: true } : s;
+      return s.siteId && s.deviceId && s.port !== null
+        ? { ...s, submitted: true }
+        : s;
     case "another":
       return { ...s, ...wizardBlank };
     default:
@@ -63,7 +72,9 @@ const AppContext = createContext(null);
 export function AppProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initial);
   const site = SITES.find((x) => x.id === state.siteId) || null;
-  const device = site ? site.devices.find((x) => x.id === state.deviceId) || null : null;
+  const device = site
+    ? site.devices.find((x) => x.id === state.deviceId) || null
+    : null;
   return (
     <AppContext.Provider value={{ state, dispatch, site, device }}>
       {children}

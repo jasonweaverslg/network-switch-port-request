@@ -1,4 +1,10 @@
-export default function Button({ variant, block, type = "button", children, ...rest }) {
+export default function Button({
+  variant,
+  block,
+  type = "button",
+  children,
+  ...rest
+}) {
   return (
     <button
       type={type}

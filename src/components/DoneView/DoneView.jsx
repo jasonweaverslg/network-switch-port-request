@@ -26,7 +26,8 @@ export default function DoneView() {
       </div>
       <GradientTitle>Request submitted</GradientTitle>
       <div className="subtitle">
-        Port {state.port} on {device.name} (Floor {device.floor}) at {site.name} has been requested.
+        Port {state.port} on {device.name} (Floor {device.floor}) at {site.name}{" "}
+        has been requested.
       </div>
       <div className="flex-row-wrap gap-8">
         <Button

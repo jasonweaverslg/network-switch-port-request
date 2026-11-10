@@ -1,12 +1,47 @@
 /* Login screen styles (from Take 1 reference). Take 3's styles.css has no login
    classes, so they live here; styles/styles.css stays verbatim. */
-.login-page{
-  --error-bg:#fee2e2; --error-fg:#991b1b;
-  flex:1;display:flex;align-items:center;justify-content:center;padding:48px 20px;background:var(--gray-50)}
-.login{width:100%;max-width:420px;display:flex;flex-direction:column;gap:24px}
-.login__head{display:flex;flex-direction:column;gap:8px}
-.login .panel{background:#fff;border:1px solid var(--gray-200);border-radius:8px;box-shadow:var(--shadow-sm);
-  padding:24px;display:flex;flex-direction:column;gap:16px}
-.login .req{color:var(--error)}
-.login .btn--block{width:100%}
-.login .alert-error{background:var(--error-bg);color:var(--error-fg);border-radius:6px;padding:10px 12px;font-size:14px}
+.login-page {
+  --error-bg: #fee2e2;
+  --error-fg: #991b1b;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 20px;
+  background: var(--gray-50);
+}
+.login {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.login__head {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.login .panel {
+  background: #fff;
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.login .req {
+  color: var(--error);
+}
+.login .btn--block {
+  width: 100%;
+}
+.login .alert-error {
+  background: var(--error-bg);
+  color: var(--error-fg);
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 14px;
+}

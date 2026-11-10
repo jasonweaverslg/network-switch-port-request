@@ -1,4 +1,19 @@
 /* From Take 1 reference; Take 3's styles.css has no link-btn rule. */
-.link-btn{min-height:44px;padding:12px 8px;border:0;background:none;cursor:pointer;font-size:14px;font-weight:600;color:var(--blue-700)}
-.link-btn:hover{text-decoration:underline}
-.link-btn:focus-visible{outline:none;box-shadow:var(--focus-ring-strong);border-radius:6px}
+.link-btn {
+  min-height: 44px;
+  padding: 12px 8px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--blue-700);
+}
+.link-btn:hover {
+  text-decoration: underline;
+}
+.link-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring-strong);
+  border-radius: 6px;
+}

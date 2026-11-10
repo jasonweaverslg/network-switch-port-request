@@ -1,6 +1,12 @@
 import Button from "../Button/Button.jsx";
 
-export default function WizardNav({ step, canContinue, onBack, onNext, onSubmit }) {
+export default function WizardNav({
+  step,
+  canContinue,
+  onBack,
+  onNext,
+  onSubmit,
+}) {
   return (
     <div className="nav">
       {step > 1 ? (

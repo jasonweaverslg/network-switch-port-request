@@ -25,7 +25,9 @@ export default function LoginScreen() {
         <div className="login__head">
           <Eyebrow>SL Green Realty Corp — Business Applications</Eyebrow>
           <GradientTitle>Network Access Requests</GradientTitle>
-          <div className="subtitle">Sign in to request access to a switch port.</div>
+          <div className="subtitle">
+            Sign in to request access to a switch port.
+          </div>
         </div>
         <form className="panel" noValidate onSubmit={onSubmit}>
           <Field id="user" label="Email or username" required>
@@ -35,7 +37,9 @@ export default function LoginScreen() {
               placeholder="name@company.com"
               autoComplete="username"
               value={state.username}
-              onChange={(e) => dispatch({ type: "setUsername", v: e.target.value })}
+              onChange={(e) =>
+                dispatch({ type: "setUsername", v: e.target.value })
+              }
             />
           </Field>
           <Field id="pass" label="Password" required>
@@ -45,7 +49,9 @@ export default function LoginScreen() {
               placeholder="Enter your password"
               autoComplete="current-password"
               value={state.password}
-              onChange={(e) => dispatch({ type: "setPassword", v: e.target.value })}
+              onChange={(e) =>
+                dispatch({ type: "setPassword", v: e.target.value })
+              }
             />
           </Field>
           {state.loginError && (

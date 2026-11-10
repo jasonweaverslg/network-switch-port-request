@@ -7,7 +7,9 @@ export default function ProgressBar({ step }) {
         {[1, 2, 3, 4].map((i) => (
           <div
             key={i}
-            className={"progress__bar" + (i <= step ? " progress__bar--on" : "")}
+            className={
+              "progress__bar" + (i <= step ? " progress__bar--on" : "")
+            }
           />
         ))}
       </div>

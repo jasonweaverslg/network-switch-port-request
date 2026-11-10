@@ -12,7 +12,10 @@ export default function DeviceStep() {
   );
   return (
     <div className="step">
-      <StepHead title="Which device?" subtitle={`Network devices at ${site.name}.`} />
+      <StepHead
+        title="Which device?"
+        subtitle={`Network devices at ${site.name}.`}
+      />
       <Field id="dq" label="Search devices">
         <TextInput
           id="dq"

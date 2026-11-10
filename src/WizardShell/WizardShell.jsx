@@ -28,12 +28,19 @@ export default function WizardShell() {
   if (!done) {
     if (step >= 2 && !site) return <Navigate to="/site" replace />;
     if (step >= 3 && !device) return <Navigate to="/device" replace />;
-    if (step >= 4 && state.port === null) return <Navigate to="/port" replace />;
+    if (step >= 4 && state.port === null)
+      return <Navigate to="/port" replace />;
     if (state.submitted) return <Navigate to="/done" replace />;
   }
 
   const canContinue =
-    step === 1 ? site !== null : step === 2 ? device !== null : step === 3 ? state.port !== null : true;
+    step === 1
+      ? site !== null
+      : step === 2
+        ? device !== null
+        : step === 3
+          ? state.port !== null
+          : true;
 
   return (
     <>

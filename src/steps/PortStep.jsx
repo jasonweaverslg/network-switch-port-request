@@ -8,8 +8,14 @@ export default function PortStep() {
   const { state, dispatch, device } = useApp();
   return (
     <div className="step">
-      <StepHead title="Which port?" subtitle={`Port on ${device.name}. Choose one.`} />
-      <PortGrid selected={state.port} onSelect={(n) => dispatch({ type: "pickPort", n })} />
+      <StepHead
+        title="Which port?"
+        subtitle={`Port on ${device.name}. Choose one.`}
+      />
+      <PortGrid
+        selected={state.port}
+        onSelect={(n) => dispatch({ type: "pickPort", n })}
+      />
       {state.port !== null && (
         <Field id="cmt" label={`What is port ${state.port} for? (optional)`}>
           <TextArea

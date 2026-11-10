@@ -7,7 +7,11 @@ export default function ReviewCard({ site, device, port, comment }) {
       <SummaryCell label="Device" value={device.name} />
       <SummaryCell label="Floor" value={device.floor} />
       <SummaryCell label="Port" value={port} />
-      <SummaryCell label="Purpose" value={comment.trim() || "No comment provided"} span2 />
+      <SummaryCell
+        label="Purpose"
+        value={comment.trim() || "No comment provided"}
+        span2
+      />
     </div>
   );
 }
