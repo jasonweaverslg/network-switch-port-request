@@ -1,3 +1,4 @@
+import "./RequestForm.css";
 import { Navigate, useNavigate } from "react-router";
 import { useApp } from "../state/AppContext.jsx";
 import { SITES } from "../data/mock.js";
@@ -110,17 +111,26 @@ export default function RequestForm() {
                     id="cmt"
                     placeholder="e.g. Security camera"
                     value={state.comment}
-                    onChange={(e) => dispatch({ type: "setComment", v: e.target.value })}
+                    onChange={(e) =>
+                      dispatch({ type: "setComment", v: e.target.value })
+                    }
                   />
                 </Field>
               )}
             </Card>
 
-            <div className="flex-row-wrap justify-end gap-8">
-              <Button variant="secondary" onClick={() => dispatch({ type: "resetForm" })}>
+            <div className="action-bar flex-row-wrap justify-end gap-8">
+              <Button
+                variant="secondary"
+                onClick={() => dispatch({ type: "resetForm" })}
+              >
                 Cancel
               </Button>
-              <Button variant="primary" disabled={state.port === null} onClick={submit}>
+              <Button
+                variant="primary"
+                disabled={state.port === null}
+                onClick={submit}
+              >
                 Submit request
               </Button>
             </div>
