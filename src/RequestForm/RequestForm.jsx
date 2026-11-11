@@ -95,7 +95,7 @@ export default function RequestForm() {
             <Card done={state.port !== null}>
               <div className="flex-row-wrap justify-between align-baseline gap-8">
                 <div className="card-title">3. Switch port</div>
-                <div className="muted-14">Select one port, 1–48</div>
+                <div className="muted-14">Select one port, 1–40</div>
               </div>
               <PortGrid
                 selected={state.port}
@@ -119,7 +119,7 @@ export default function RequestForm() {
               )}
             </Card>
 
-            <div className="action-bar flex-row-wrap justify-end gap-8">
+            <div className="action-bar flex-row-wrap justify-end gap-10">
               <Button
                 variant="secondary"
                 onClick={() => dispatch({ type: "resetForm" })}
