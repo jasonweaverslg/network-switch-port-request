@@ -1,0 +1,18 @@
+/* Cancel / Submit pinned to the bottom of the viewport, full width, buttons on the right.
+   Extra to the handoff stylesheet, which stays verbatim. */
+.action-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  box-sizing: border-box;
+  padding: 12px 32px;
+  background: #fff;
+  border-top: 1px solid var(--gray-200);
+  box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.05);
+}
+/* Leave room so the last card is never hidden behind the fixed bar. */
+.form-page {
+  padding-bottom: 96px;
+}
