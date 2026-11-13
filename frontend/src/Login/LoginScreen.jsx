@@ -24,7 +24,9 @@ export default function LoginScreen() {
       <div className="login">
         <div className="login__head">
           <Eyebrow>SL Green Realty Corp</Eyebrow>
-          <GradientTitle size="lg">Network Access Requests</GradientTitle>
+          <GradientTitle size="lg">
+            Network Operations Request Portal
+          </GradientTitle>
           <div className="subtitle">
             Sign in to request access to a switch port.
           </div>
