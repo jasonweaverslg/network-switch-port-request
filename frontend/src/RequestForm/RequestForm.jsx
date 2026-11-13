@@ -36,7 +36,7 @@ export default function RequestForm() {
       {/*==== Nav Header ====*/}
       <header className="topbar">
         <div className="topbar__inner">
-          <Eyebrow>SL Green · Network Access</Eyebrow>
+          <Eyebrow>SL Green · Network Operations Request Portal</Eyebrow>
           <div className="topbar__user">
             <span>{state.username}</span>
             <LinkButton onClick={signOut}>Sign out</LinkButton>
