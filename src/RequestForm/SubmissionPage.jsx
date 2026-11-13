@@ -6,7 +6,7 @@ import SummaryCell from "../components/SummaryCell/SummaryCell.jsx";
 import Button from "../components/Button/Button.jsx";
 
 export default function SubmissionPage() {
-  const { state, dispatch, site, device, signedIn } = useApp();
+  const { state, dispatch, site, device, techGroup, signedIn } = useApp();
   const navigate = useNavigate();
 
   if (!signedIn) return <Navigate to="/login" replace />;
@@ -30,7 +30,7 @@ export default function SubmissionPage() {
             <SummaryCell label="Port" value={state.port} />
             <SummaryCell
               label="Purpose"
-              value={state.comment.trim() || "No comment provided"}
+              value={techGroup || "No comment provided"}
               span2
             />
           </div>

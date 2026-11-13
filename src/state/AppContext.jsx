@@ -1,7 +1,8 @@
 import { createContext, useContext, useReducer } from "react";
-import { SITES } from "../data/mock.js";
+import { SITES, TECHGROUPS } from "../data/mock.js";
 
-const blankForm = { siteId: null, deviceId: null, port: null, comment: "" };
+// const blankForm = { siteId: null, deviceId: null, port: null, comment: "" };
+const blankForm = { siteId: null, deviceId: null, port: null, techGroup: null };
 const initial = {
   username: "",
   password: "",
@@ -26,15 +27,17 @@ function reducer(s, a) {
     case "pickSite":
       return { ...s, siteId: a.id, deviceId: null, port: null, comment: "" };
     case "pickDevice":
-      return { ...s, deviceId: a.id, port: null, comment: "" };
+      return { ...s, deviceId: a.id, port: null, techGroup: null, comment: "" };
     case "pickPort":
-      return { ...s, port: a.n };
-    case "setComment":
-      return { ...s, comment: a.v };
+      return { ...s, port: a.n, techGroup: null };
+    case "pickTechGroup":
+      return { ...s, techGroup: a.t };
+    // case "setComment":
+    //   return { ...s, comment: a.v };
     case "resetForm":
       return { ...s, ...blankForm };
     case "submit":
-      return s.siteId && s.deviceId && s.port !== null
+      return s.siteId && s.deviceId && s.port && s.techGroup !== null
         ? { ...s, submitted: true }
         : s;
     case "another":
@@ -49,9 +52,23 @@ const AppContext = createContext(null);
 export function AppProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initial);
   const site = SITES.find((x) => x.id === state.siteId) || null;
-  const device = site ? site.devices.find((x) => x.id === state.deviceId) || null : null;
+  const device = site
+    ? site.devices.find((x) => x.id === state.deviceId) || null
+    : null;
+  const techGroup = device
+    ? TECHGROUPS.find((x) => x === state.techGroup)
+    : null;
   return (
-    <AppContext.Provider value={{ state, dispatch, site, device, signedIn: state.signedIn }}>
+    <AppContext.Provider
+      value={{
+        state,
+        dispatch,
+        site,
+        device,
+        techGroup,
+        signedIn: state.signedIn,
+      }}
+    >
       {children}
     </AppContext.Provider>
   );

@@ -406,7 +406,8 @@ textarea.fc {
   color: var(--gray-800);
   cursor: pointer;
 }
-.sd__item:hover {
+.sd__item:hover,
+.sd__item--active {
   background: var(--blue-50);
   color: var(--blue-700);
 }

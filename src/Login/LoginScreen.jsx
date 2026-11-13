@@ -23,7 +23,7 @@ export default function LoginScreen() {
     <main className="center-page">
       <div className="login">
         <div className="login__head">
-          <Eyebrow>SL Green Realty Corp — Business Applications</Eyebrow>
+          <Eyebrow>SL Green Realty Corp</Eyebrow>
           <GradientTitle size="lg">Network Access Requests</GradientTitle>
           <div className="subtitle">
             Sign in to request access to a switch port.

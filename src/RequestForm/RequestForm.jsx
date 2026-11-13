@@ -1,7 +1,7 @@
 import "./RequestForm.css";
 import { Navigate, useNavigate } from "react-router";
 import { useApp } from "../state/AppContext.jsx";
-import { SITES } from "../data/mock.js";
+import { SITES, TECHGROUPS } from "../data/mock.js";
 import Eyebrow from "../components/Eyebrow/Eyebrow.jsx";
 import GradientTitle from "../components/GradientTitle/GradientTitle.jsx";
 import LinkButton from "../components/LinkButton/LinkButton.jsx";
@@ -13,7 +13,7 @@ import PortGrid from "../components/PortGrid/PortGrid.jsx";
 import Button from "../components/Button/Button.jsx";
 
 export default function RequestForm() {
-  const { state, dispatch, site, device, signedIn } = useApp();
+  const { state, dispatch, site, device, techGroup, signedIn } = useApp();
   const navigate = useNavigate();
 
   if (!signedIn) return <Navigate to="/login" replace />;
@@ -24,7 +24,8 @@ export default function RequestForm() {
   }
 
   function submit() {
-    if (site && device && state.port !== null) {
+    if (site && device && state.port && techGroup !== null) {
+      console.log(techGroup);
       dispatch({ type: "submit" });
       navigate("/submitted");
     }
@@ -32,6 +33,7 @@ export default function RequestForm() {
 
   return (
     <>
+      {/*==== Nav Header ====*/}
       <header className="topbar">
         <div className="topbar__inner">
           <Eyebrow>SL Green · Network Access</Eyebrow>
@@ -41,6 +43,8 @@ export default function RequestForm() {
           </div>
         </div>
       </header>
+
+      {/*==== Form Header ====*/}
       <main className="form-page">
         <div className="flex-col gap-4">
           <GradientTitle size="md">Switch Port Access Request</GradientTitle>
@@ -49,6 +53,7 @@ export default function RequestForm() {
           </div>
         </div>
 
+        {/*==== Site Dropdown ====*/}
         <Card done={!!site} title="1. Site">
           <Field id="site" label="Building location" required>
             <SearchableSelect
@@ -66,6 +71,7 @@ export default function RequestForm() {
           </Field>
         </Card>
 
+        {/*==== Device Dropdown ====*/}
         {site && (
           <Card done={!!device} title="2. Network device">
             <Field id="dev" label="Device and floor" required>
@@ -90,18 +96,32 @@ export default function RequestForm() {
           </Card>
         )}
 
+        {/*==== Port Dropdown ====*/}
         {device && (
           <>
             <Card done={state.port !== null}>
-              <div className="flex-row-wrap justify-between align-baseline gap-8">
-                <div className="card-title">3. Switch port</div>
-                <div className="muted-14">Select one port, 1–48</div>
-              </div>
-              <PortGrid
+              <div className="card-title">3. Select a Switch Port</div>
+
+              <Field id="port" label="Select one port, 1-48" required>
+                <SearchableSelect
+                  id="port"
+                  placeholder="Search or select a port"
+                  items={Array.from({ length: 48 }, (_, i) => i + 1)}
+                  selected={state.port}
+                  emptyText="No available ports"
+                  getKey={(n) => n}
+                  getSearchText={(n) => String(n)}
+                  getInputLabel={(n) => n}
+                  renderItem={(n) => n}
+                  onSelect={(n) => dispatch({ type: "pickPort", n })}
+                  matches={(n, q) => String(n) === q}
+                />
+              </Field>
+              {/* <PortGrid
                 selected={state.port}
                 onSelect={(n) => dispatch({ type: "pickPort", n })}
-              />
-              {state.port !== null && (
+              /> */}
+              {/* {state.port !== null && (
                 <Field
                   id="cmt"
                   label={`Purpose of port ${state.port} (optional)`}
@@ -116,6 +136,23 @@ export default function RequestForm() {
                     }
                   />
                 </Field>
+              )} */}
+              {/*==== Technology Group Dropdown ====*/}
+              {state.port !== null && (
+                <Field id="tg" label="Technology Group" required>
+                  <SearchableSelect
+                    id="tg"
+                    placeholder="Search or select a technology group"
+                    items={TECHGROUPS}
+                    selected={techGroup}
+                    emptyText="No matching technology groups"
+                    getKey={(t) => t}
+                    getSearchText={(t) => t}
+                    getInputLabel={(t) => t}
+                    renderItem={(t) => t}
+                    onSelect={(t) => dispatch({ type: "pickTechGroup", t })}
+                  />
+                </Field>
               )}
             </Card>
 
@@ -128,7 +165,7 @@ export default function RequestForm() {
               </Button>
               <Button
                 variant="primary"
-                disabled={state.port === null}
+                disabled={techGroup === null || techGroup === undefined}
                 onClick={submit}
               >
                 Submit request

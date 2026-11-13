@@ -336,3 +336,14 @@ export const SITES = [
     ],
   },
 ];
+
+export const TECHGROUPS = [
+  "Camera",
+  "Access Control",
+  "Submeter",
+  "BMS",
+  "AV",
+  "Active Shooter",
+  "Alarm Panel",
+  "Other",
+];
